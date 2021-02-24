@@ -1,5 +1,7 @@
 package com.train.service;
 
+import com.train.dao.UserDao;
+
 public class UserService {
 
     public void service() {
@@ -12,5 +14,10 @@ public class UserService {
 
     }
 
+    private UserDao userDao;
 
+    //业务对象userDao set注入（提供set方法）
+    public void setUserDao(UserDao userDao) {
+        this.userDao = userDao;
+    }
 }

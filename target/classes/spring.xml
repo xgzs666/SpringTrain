@@ -4,9 +4,17 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <import resource="dao.xml"/>
+<!--    <import resource="dao.xml"/>-->
 <!--    <import resource="service.xml"/>-->
+
+    <!-- 静态实例化   -->
 <!--    <bean id="userDao" class="com.train.factory.StaticFactory" factory-method="createUserDao"/>-->
-    <bean id="userService" class="com.train.factory.StaticFactory" factory-method="createUserService"/>
+<!--    <bean id="userService" class="com.train.factory.StaticFactory" factory-method="createUserService"/>-->
+
+<!-- 非静态实例化   -->
+    <bean id="instanceFactory" class="com.train.factory.Factory"/>
+    <bean id="userService" factory-bean="instanceFactory" factory-method="createUserService"/>
+    <bean id="userDao" factory-bean="instanceFactory" factory-method="createUserDao"/>
+
 
 </beans>

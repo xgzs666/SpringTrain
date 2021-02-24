@@ -20,5 +20,9 @@ public class Starter {
         BeanFactory beanFactory = new ClassPathXmlApplicationContext("spring.xml");
         UserService userService1 = (UserService) beanFactory.getBean("userService");
         userService1.service();
+        UserDao userDao1 = (UserDao) beanFactory.getBean("userDao");
+        userDao1.test();
+
+
     }
 }
